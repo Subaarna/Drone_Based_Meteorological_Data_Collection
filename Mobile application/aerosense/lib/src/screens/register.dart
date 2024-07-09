@@ -26,7 +26,7 @@ class RegisterState extends State<Register> {
 
   Future<void> registerUser(BuildContext context) async {
     final url = Uri.parse(
-        'https://meteorological-data-collection-using-wh35.onrender.com/signup');
+        'https://drone-based-meteorological-data.onrender.com/signup');
     try {
       final response = await http.post(
         url,

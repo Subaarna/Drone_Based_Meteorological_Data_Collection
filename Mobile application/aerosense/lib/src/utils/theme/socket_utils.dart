@@ -5,7 +5,7 @@ final logger = Logger();
 
 class SocketUtils {
   static const String baseurl =
-      'https://meteorological-data-collection-using-kmak.onrender.com';
+      'https://drone-based-meteorological-data.onrender.com';
   static late io.Socket socket;
 
   static void connect() {

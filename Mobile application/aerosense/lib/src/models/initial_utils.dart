@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class InitialData {
   static const String baseUrl =
-      'https://meteorological-data-collection-using-wh35.onrender.com';
+      'https://drone-based-meteorological-data.onrender.com';
   static late List<InitialWeather> weatherData;
   static Future<void> fetchData() async {
     final response = await http.get(Uri.parse('$baseUrl/initialData'));

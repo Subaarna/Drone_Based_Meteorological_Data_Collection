@@ -170,7 +170,7 @@ async function sendVerificationEmail(email, verificationToken) {
           subject: "Email Verification",
           html: `<p>Dear User,</p>
               <p>Please verify your email address by clicking the following link:</p>
-              <p><a href="https://meteorological-data-collection-using-wh35.onrender.com/verifyEmail?token=${verificationToken}">Verify Email</a></p>`,
+              <p><a href="https://drone-based-meteorological-data.onrender.com/verifyEmail?token=${verificationToken}">Verify Email</a></p>`,
       });
 
       console.log("Verification email sent: %s", info.messageId);

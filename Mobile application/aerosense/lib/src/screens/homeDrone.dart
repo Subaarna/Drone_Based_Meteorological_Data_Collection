@@ -71,32 +71,36 @@ class HomeDroneState extends State<HomeDrone> {
     super.initState();
     _getCurrentLocation();
     InitialData.fetchData().then((_) {
-      setState(() {
-        logger.d('Access Token: ${widget.accessToken}');
+      if (mounted) {
+        setState(() {
+          logger.d('Access Token: ${widget.accessToken}');
 
-        humidity = InitialData.weatherData.first.humidity;
+          humidity = InitialData.weatherData.first.humidity;
 
-        // Print fetched data
-        logger.d('Fetched data: ${InitialData.weatherData}');
-      });
+          // Print fetched data
+          logger.d('Fetched data: ${InitialData.weatherData}');
+        });
+      }
     }).catchError((error) {
       logger.d('Failed to fetch initial data: $error');
     });
     historicalData.fetchData().then((_) {
-      setState(() {
-        // Update state variables with the fetched historical data
-        highestTemperature =
-            HistoricalData.weatherData.first.highestTemperatureCelsius;
-        lowestTemperature =
-            HistoricalData.weatherData.first.lowestTemperatureCelsius;
-        highestPM25 = HistoricalData.weatherData.first.highestPM25;
-        lowestPM25 = HistoricalData.weatherData.first.lowestPM25;
-        highestHumidity = HistoricalData.weatherData.first.highestHumidity;
-        lowestHumidity = HistoricalData.weatherData.first.lowestHumidity;
+      if (mounted) {
+        setState(() {
+          // Update state variables with the fetched historical data
+          highestTemperature =
+              HistoricalData.weatherData.first.highestTemperatureCelsius;
+          lowestTemperature =
+              HistoricalData.weatherData.first.lowestTemperatureCelsius;
+          highestPM25 = HistoricalData.weatherData.first.highestPM25;
+          lowestPM25 = HistoricalData.weatherData.first.lowestPM25;
+          highestHumidity = HistoricalData.weatherData.first.highestHumidity;
+          lowestHumidity = HistoricalData.weatherData.first.lowestHumidity;
 
-        // Print fetched data
-        logger.d('Fetched historical data: ${HistoricalData.weatherData}');
-      });
+          // Print fetched data
+          logger.d('Fetched historical data: ${HistoricalData.weatherData}');
+        });
+      }
     }).catchError((error) {
       logger.d('Failed to fetch historical data: $error');
     });
@@ -110,8 +114,10 @@ class HomeDroneState extends State<HomeDrone> {
     //   updateHumidity(Weather.fromJson(data.humidity.first));
     // });
     SocketUtils.socket.on('DroneDataUpdate', (dronedata) {
-      logger.i(dronedata);
-      updateWeather(DroneWeather.fromJson(dronedata.first));
+      if (mounted) {
+        logger.i(dronedata);
+        updateWeather(DroneWeather.fromJson(dronedata.first));
+      }
     });
   }
 

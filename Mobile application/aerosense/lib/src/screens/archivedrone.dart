@@ -70,7 +70,7 @@ class ArchiveState extends State<ArchiveDrone> {
 
   void getDataForLastWeekDrone() async {
     final response = await http.get(Uri.parse(
-        'https://meteorological-data-collection-using-wh35.onrender.com/archivedr'));
+        'https://drone-based-meteorological-data.onrender.com/archivedr'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);

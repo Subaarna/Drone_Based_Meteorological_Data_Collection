@@ -71,7 +71,7 @@ class ArchiveState extends State<Archive> {
 
   void fetchWeatherData() async {
     final response = await http.get(Uri.parse(
-        'https://meteorological-data-collection-using-wh35.onrender.com/archiveow'));
+        'https://drone-based-meteorological-data.onrender.com/archiveow'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);

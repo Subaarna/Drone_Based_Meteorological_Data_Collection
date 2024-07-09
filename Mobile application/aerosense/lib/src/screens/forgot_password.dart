@@ -18,7 +18,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   final Logger logger = Logger();
   Future<void> forgotPassword(BuildContext context) async {
     final url = Uri.parse(
-        'https://meteorological-data-collection-using-wh35.onrender.com/forgotPassword');
+        'https://drone-based-meteorological-data.onrender.com/forgotPassword');
 
     try {
       if (emailController.text.isEmpty) {

@@ -11,7 +11,7 @@ import 'dart:convert';
 
 class HistoricalData {
   static const String baseUrl =
-      'https://meteorological-data-collection-using-wh35.onrender.com';
+      'https://drone-based-meteorological-data.onrender.com';
   static late List<HistoricalWeather> weatherData;
   Future<void> fetchData() async {
     final response = await http.get(Uri.parse('$baseUrl/historicalowData'));
