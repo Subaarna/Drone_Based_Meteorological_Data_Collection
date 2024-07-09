@@ -48,9 +48,9 @@ class InitialWeather {
       humidity: json['humidity'],
       cityName: json['cityName'],
       weatherMain: json['weatherMain'],
-      pm25: json['pm2_5'],
-      pm10: json['pm10'],
-      longitude: json['longitude'],
+      pm25: (json['pm2_5'] as num).toDouble(),
+      pm10: (json['pm10'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
     );
   }
 
